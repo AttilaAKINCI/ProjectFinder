@@ -50,10 +50,10 @@ dependencies {
     kapt "androidx.room:room-compiler:2.2.5"
     implementation "androidx.room:room-ktx:2.2.5"
 
-    //system related
+    // system related
     implementation 'androidx.appcompat:appcompat:1.2.0'
 
-    //  --> Navigation
+    // navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     implementation "androidx.navigation:navigation-dynamic-features-fragment:2.3.0"
