@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.akinci.repolisting.features.splash.SplashScreenFragment">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_repoListFragment"
+            app:destination="@id/repoListFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoListFragment"
+        android:name="com.akinci.repolisting.features.repositoryViewer.repoListing.view.RepoListFragment"
+        android:label="@string/title_repoList" >
+        <action
+            android:id="@+id/action_repoListFragment_to_repoDetailFragment"
+            app:destination="@id/repoDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <argument
+            android:name="repoId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <argument
+            android:name="isFav"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoDetailFragment"
+        android:name="com.akinci.repolisting.features.repositoryViewer.repoDetail.view.RepoDetailFragment"
+        android:label="@string/title_repo_detail" >
+
+        <action
+            android:id="@+id/action_repoDetailFragment_to_repoListFragment"
+            app:destination="@id/repoListFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/repoListFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="repoListIndex"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>

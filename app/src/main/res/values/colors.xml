@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#007BFF</color>
+    <color name="colorPrimaryLight">#7C9CFF</color>
+    <color name="colorPrimaryDark">#0022FF</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="splashBackground">#ff6900</color>
+
+
+    <color name="gray">#999999</color>
+
+    <color name="black">#222222</color>
+
+    <color name="red">#FF0000</color>
+    <color name="colorSoftWhite">#F9F9F9</color>
+    <color name="mainBg">#FFFFFF</color>
+
+    <color name="rowBg">#f0f0f0</color>
+
+    <color name="transparent">#00ffffff</color>
+
+    <color name="rowArrowColor">#AAAAAA</color>
+    <color name="rowStarColor">#F6AE1B</color>
+
+</resources>
