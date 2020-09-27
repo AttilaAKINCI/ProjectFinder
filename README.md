@@ -8,6 +8,7 @@ Android Kotlin application for repository listing for github
 * Single activity multiple fragment approach
 * MVVM design parttern
 * Graph Scoped ViewModels
+* Databinding
 * ROOM Databases
 * Navigation Component
 * Retrofit 2.9.0+
