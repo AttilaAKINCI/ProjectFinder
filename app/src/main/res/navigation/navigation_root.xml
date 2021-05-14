@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_root"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.akinci.projectfinder.features.splash.view.SplashFragment"
+        android:label="@string/title_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_repoDashboardFragment"
+            app:destination="@id/repoDashboardFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/repoDashboardFragment"
+        android:name="com.akinci.projectfinder.features.dashboard.view.RepoDashboardFragment"
+        android:label="@string/title_dashboard" >
+        <action
+            android:id="@+id/action_repoDashboardFragment_to_repoDetailFragment"
+            app:destination="@id/repoDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoDetailFragment"
+        android:name="com.akinci.projectfinder.features.detail.view.RepoDetailFragment"
+        android:label="@string/title_detail" />
+
+</navigation>

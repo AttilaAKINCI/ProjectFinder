@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">ProjectFinder</string>
+
+    <!-- Lottie files -->
+    <string name="lottie_project_finder">projectFinder.json</string>
+
+    <!--  Splash Fragment   -->
+    <string name="title_splash">Splash</string>
+
+    <!--  Repo Dashboard Fragment   -->
+    <string name="title_dashboard">Repo Dashboard</string>
+
+    <!--  Repo Detail Fragment   -->
+    <string name="title_detail">Repo Detail</string>
+
+
+    <string name="image_view_content_desc">Image View Content Description</string>
+
+
+
 </resources>

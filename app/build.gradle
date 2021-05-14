@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
@@ -9,12 +12,13 @@ android {
 
     defaultConfig {
         applicationId "com.akinci.projectfinder"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.akinci.projectfinder.HiltTestRunner"
     }
 
     buildTypes {
@@ -23,12 +27,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures{
+        dataBinding = true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    packagingOptions{
+        exclude 'META-INF/*'
     }
 }
 
@@ -36,10 +50,85 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'com.android.support:multidex:1.0.3'
     implementation 'androidx.appcompat:appcompat:1.2.0'
+
+    //UI RELATED
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //network retfofit & moshi
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation 'com.squareup.okhttp3:okhttp'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+    implementation("com.squareup.moshi:moshi-kotlin:1.11.0")
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.10.0")
+
+    // Coroutines
+    def coroutine_version = "1.4.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutine_version}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutine_version}"
+
+    // Lifecycle
+    def lifecycle_version = "2.3.1"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_version}"
+
+    //Timber logging
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //NavigationComponent
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$navigation_version"
+
+    //ANIMATIONS
+    implementation 'com.airbnb.android:lottie:3.0.0'
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'
+
+    // Room and Lifecycle dependencies
+    def room_version = "2.2.6"
+    implementation "androidx.room:room-runtime:${room_version}"
+    kapt "androidx.room:room-compiler:${room_version}"
+    implementation "androidx.room:room-ktx:${room_version}"
+
+
+
+    // Image cache and usage : Glide
+    //proguard issue check later -> https://github.com/bumptech/glide
+    def glide_version = "4.11.0"
+    implementation "com.github.bumptech.glide:glide:${glide_version}"
+    kapt "com.github.bumptech.glide:compiler:${glide_version}"
+
+
+    //TEST RELATED
+    // Unit Tests
+    def junit_5_version = "5.7.1"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junit_5_version}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junit_5_version}"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${junit_5_version}"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+    testImplementation 'com.google.truth:truth:1.0.1'
+    testImplementation "io.mockk:mockk:1.10.6"
+
+    // Instrumented Testes
+    androidTestImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'android.arch.core:core-testing:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'com.google.truth:truth:1.0.1'
+    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.31-alpha'   //hilt integration for testing
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.31-alpha'            //hilt integration for testing
+
 }
