@@ -1,24 +1,33 @@
 package com.akinci.projectfinder.features.dashboard.view
 
-import android.graphics.Shader
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.NavHostFragment
 import com.akinci.projectfinder.R
-import com.akinci.projectfinder.common.component.TileDrawable
+import com.akinci.projectfinder.common.component.SnackBar
+import com.akinci.projectfinder.common.component.listview.ShimmerAdapter
+import com.akinci.projectfinder.common.extension.setTiledImageDrawable
+import com.akinci.projectfinder.common.helper.Resource
 import com.akinci.projectfinder.databinding.FragmentRepoDashboardBinding
+import com.akinci.projectfinder.features.dashboard.adapter.RepoListAdapter
+import com.akinci.projectfinder.features.dashboard.view.RepoDashboardFragmentDirections.Companion.actionRepoDashboardFragmentToRepoDetailFragment
 import com.akinci.projectfinder.features.dashboard.viewmodel.RepoDashboardViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class RepoDashboardFragment : Fragment() {
 
     lateinit var binding: FragmentRepoDashboardBinding
-    private val repoDashboardViewModel : RepoDashboardViewModel by viewModels()
+    private val repoDashboardViewModel : RepoDashboardViewModel by activityViewModels()
+
+    private val shimmerAdapter = ShimmerAdapter()
+    private lateinit var repoListAdapter : RepoListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,13 +42,54 @@ class RepoDashboardFragment : Fragment() {
 
         // show appbar on repo dashboard
         (activity as AppCompatActivity).supportActionBar?.show()
-
         // set tile background
-        val backgroundDrawable = ContextCompat.getDrawable(requireContext(), R.drawable.pattern)
-        binding.tileBackground.setImageDrawable(TileDrawable(backgroundDrawable!!, Shader.TileMode.REPEAT))
+        binding.tileBackground.setTiledImageDrawable(R.drawable.pattern)
+
+        // repo listing adapter
+        repoListAdapter = RepoListAdapter(clickListener = { repoRowId ->
+            // catch news row clicks and navigate to repo Detail fragment
+            Timber.d("Navigation to repo detail fragment")
+
+            NavHostFragment.findNavController(this).navigate(
+                actionRepoDashboardFragmentToRepoDetailFragment(repoRowId)
+            )
+        })
 
         Timber.d("RepoDashboardFragment created..")
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        repoDashboardViewModel.fetchRepositories("yuanbo07")
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        repoDashboardViewModel.listData.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> {
+                    Timber.d("Shimmer activated")
+                    binding.recyclerList.adapter = shimmerAdapter
+                }
+                is Resource.Success -> {
+                    // send data to news adapter
+                    it.data?.let { data ->
+                        Timber.d("repos are displayed")
+                        binding.recyclerList.adapter = repoListAdapter
+                        repoListAdapter.submitList(data)
+                    }
+                }
+                is Resource.Error -> {
+                    // show error message on snackBar
+                    SnackBar.makeLarge(binding.root, it.message, SnackBar.LENGTH_LONG).show()
+                }
+
+            }
+        }
+
     }
 
 }

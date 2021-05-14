@@ -27,6 +27,10 @@
     <fragment
         android:id="@+id/repoDetailFragment"
         android:name="com.akinci.projectfinder.features.detail.view.RepoDetailFragment"
-        android:label="@string/title_detail" />
+        android:label="@string/title_detail" >
+        <argument
+            android:name="repoId"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>
