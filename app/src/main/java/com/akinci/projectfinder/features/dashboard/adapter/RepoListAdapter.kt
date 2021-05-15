@@ -5,28 +5,32 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.akinci.projectfinder.R
+import com.akinci.projectfinder.common.extension.setGlideImageCentered
 import com.akinci.projectfinder.databinding.RowReposBinding
 import com.akinci.projectfinder.features.repocommon.data.output.RepoResponse
 
-class RepoListAdapter(private val clickListener: (Int) -> Unit) : ListAdapter<RepoResponse, RepoListAdapter.NewsViewHolder>(NewsDiffCallback()) {
+class RepoListAdapter(private val clickListener: (Int) -> Unit) : ListAdapter<RepoResponse, RepoListAdapter.RepoViewHolder>(NewsDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return NewsViewHolder(RowReposBinding.inflate(layoutInflater, parent, false))
+        return RepoViewHolder(RowReposBinding.inflate(layoutInflater, parent, false))
     }
 
-    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RepoViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item, position, clickListener)
     }
 
-    class NewsViewHolder(val binding: RowReposBinding) : RecyclerView.ViewHolder(binding.root) {
+    class RepoViewHolder(val binding: RowReposBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: RepoResponse, position : Int , clickListener: (Int) -> Unit) {
             // fill row instances..
             binding.repoCardView.setOnClickListener { clickListener.invoke(position) }
-//            binding.data = item
-//
-//            binding.newsImage.setGlideImageCentered(item.picUrl)
+            binding.data = item
+
+            item.owner?.avatar_url?.let {
+                binding.repoImage.setGlideImageCentered(imageUrl = it, fallbackDrawableId = R.drawable.ic_person)
+            }
 
             binding.executePendingBindings()
         }

@@ -9,6 +9,8 @@
 
     <!--  Repo Dashboard Fragment   -->
     <string name="title_dashboard">Repo Dashboard</string>
+    <string name="edit_text_search_placeholder">Type a name of repository owner</string>
+
 
     <!--  Repo Detail Fragment   -->
     <string name="title_detail">Repo Detail</string>
@@ -16,6 +18,8 @@
 
     <string name="image_view_content_desc">Image View Content Description</string>
 
-
+    <!-- Text Input Field Not empty Validation -->
+    <string name="validation_text_input_edit_text_not_empty">Please fill required fields.</string>
+    <string name="validation_text_input_edit_text_not_blank">Field can not be blank.</string>
 
 </resources>

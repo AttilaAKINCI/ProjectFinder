@@ -1,5 +1,6 @@
 package com.akinci.projectfinder.features.repocommon.data.local.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.akinci.projectfinder.features.repocommon.data.local.entities.RepoEntity
 
@@ -16,9 +17,5 @@ interface RepoDao {
     suspend fun deleteRepository(repo : RepoEntity)
 
     @Query("SELECT * FROM repoTable")
-    suspend fun getAllRepositories(): List<RepoEntity>
-
-    @Query("SELECT * FROM repoTable WHERE favoriteRepoId= :favoriteRepoId")
-    suspend fun getRepository(favoriteRepoId : Long): RepoEntity
-
+    fun getAllRepositories(): LiveData<List<RepoEntity>>
 }

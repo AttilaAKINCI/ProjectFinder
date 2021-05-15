@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akinci.projectfinder.common.coroutine.CoroutineContextProvider
 import com.akinci.projectfinder.common.helper.Resource
+import com.akinci.projectfinder.features.repocommon.data.local.entities.RepoEntity
 import com.akinci.projectfinder.features.repocommon.data.output.RepoResponse
 import com.akinci.projectfinder.features.repocommon.repository.RepoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,12 +21,20 @@ class RepoDashboardViewModel @Inject constructor(
     private val repoRepository : RepoRepository,
 ) : ViewModel() {
 
+    // for initial search focus
+    var searchFocusEnabled = MutableLiveData(true)
+
     // repo list data
     private val _listData = MutableLiveData<Resource<List<RepoResponse>>>()
     val listData : LiveData<Resource<List<RepoResponse>>> = _listData
 
+    private val _favoriteRepositories : LiveData<List<RepoEntity>>
+
     init {
         Timber.d("RepoDashboardViewModel created..")
+
+        // fetch local room content for repositories.
+        _favoriteRepositories = repoRepository.getAllRepositories()
     }
 
     fun fetchRepositories(userName : String){
@@ -42,6 +51,16 @@ class RepoDashboardViewModel @Inject constructor(
                     is Resource.Success -> {
                         repoResponse.data?.let { data ->
                             Timber.d("Repo api service fetched ${data.size} repos")
+
+                            // repository data is fetched so favorite conditions should be attached in here.
+                            data.map {
+                                _favoriteRepositories.value?.let { localData ->
+                                    if(localData.filter{localIds -> localIds.favoriteRepoId == it.id}.any()){
+                                        it.isFavorite = true
+                                    }
+                                }
+                            }
+
                             _listData.postValue(Resource.Success(data))
                         }
                     }

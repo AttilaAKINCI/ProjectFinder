@@ -21,7 +21,6 @@ class RepoRepository @Inject constructor(
     suspend fun insertAllRepositories(repos : List<RepoEntity>) = repoDao.insertAllRepositories(repos)
     suspend fun insertRepository(repo : RepoEntity) = repoDao.insertRepository(repo)
     suspend fun deleteRepository(repo : RepoEntity) = repoDao.deleteRepository(repo)
-    suspend fun getAllRepositories() = repoDao.getAllRepositories()
-    suspend fun getRepository(favoriteRepoId : Long) = repoDao.getRepository(favoriteRepoId)
+    fun getAllRepositories() = repoDao.getAllRepositories()
 
 }

@@ -11,7 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.akinci.projectfinder.R
 import com.akinci.projectfinder.common.component.SnackBar
 import com.akinci.projectfinder.common.component.listview.ShimmerAdapter
-import com.akinci.projectfinder.common.extension.setTiledImageDrawable
+import com.akinci.projectfinder.common.extension.*
 import com.akinci.projectfinder.common.helper.Resource
 import com.akinci.projectfinder.databinding.FragmentRepoDashboardBinding
 import com.akinci.projectfinder.features.dashboard.adapter.RepoListAdapter
@@ -55,18 +55,35 @@ class RepoDashboardFragment : Fragment() {
             )
         })
 
+        // search button click action
+        binding.buttonSearch.setOnClickListener {
+            // valide search input.
+            if(binding.editTextSearchText.validateNotEmpty() &&
+                    binding.editTextSearchText.validateNotBlank()){
+                // not null, not empty and not blank key can be searched.
+                // fields are valid. Initiate search
+                binding.editTextSearchText.clearFocus()
+                hideKeyboard()
+                repoDashboardViewModel.fetchRepositories(binding.editTextSearchText.text.toString())
+            }else{
+                SnackBar.make(binding.root,  "Please check input fields.", SnackBar.LENGTH_LONG).show()
+            }
+        }
+
         Timber.d("RepoDashboardFragment created..")
         return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        repoDashboardViewModel.fetchRepositories("yuanbo07")
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        repoDashboardViewModel.searchFocusEnabled.observe(viewLifecycleOwner){
+            if(it){
+                // automatically call focus for search. (because we don't have any data in initial load)
+                requireActivity().showKeyboardForView(binding.editTextSearchText)
+                repoDashboardViewModel.searchFocusEnabled.value = false
+            }
+        }
 
         repoDashboardViewModel.listData.observe(viewLifecycleOwner) {
             when (it) {
@@ -89,7 +106,6 @@ class RepoDashboardFragment : Fragment() {
 
             }
         }
-
     }
 
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -9,42 +10,53 @@
             type="com.akinci.projectfinder.features.repocommon.data.output.RepoResponse"/>
     </data>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/repo_card_view"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/repo_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="@color/rowBg"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    app:cardBackgroundColor="@color/rowBg"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardCornerRadius="5dp">
+                    android:orientation="horizontal">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/repo_image_container"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        app:cardCornerRadius="50dp">
 
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/repo_image_container"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_margin="5dp"
-                            app:cardCornerRadius="5dp">
+                        <ImageView
+                            android:id="@+id/repo_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/image_view_content_desc"/>
 
-                            <ImageView
-                                android:id="@+id/repo_image"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:contentDescription="@string/image_view_content_desc"/>
+                    </androidx.cardview.widget.CardView>
 
-                        </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/title"
@@ -54,41 +66,47 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginEnd="5dp"
                             android:layout_marginBottom="5dp"
-                            android:layout_toStartOf="@+id/arrow"
-                            android:layout_toEndOf="@+id/repo_image_container"
-                            android:fontFamily="@font/ubuntu"
+                            android:fontFamily="@font/ubuntu_medium"
                             android:singleLine="true"
-                            android:text="title"
-                            tools:text="title" />
+                            android:text="@{data.name}"
+                            tools:text="Repository Title" />
 
                         <TextView
                             android:id="@+id/description"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/title"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
-                            android:layout_toStartOf="@+id/arrow"
-                            android:layout_toEndOf="@+id/repo_image_container"
                             android:ellipsize="end"
-                            android:maxLines="3"
+                            android:maxLines="2"
                             android:fontFamily="@font/ubuntu"
-                            android:text="description"
-                            tools:text="description"/>
+                            android:text="@{data.description}"
+                            tools:text="Repository Description"/>
 
-                        <ImageView
-                            android:id="@+id/arrow"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/ic_arrow_right"
-                            android:backgroundTint="@color/gray"
-                            android:backgroundTintMode="src_in"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:contentDescription="@string/image_view_content_desc"/>
+                    </LinearLayout>
 
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-        </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/button_favorite_star"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@{data.isFavorite() ? @drawable/ic_star_filled : @drawable/ic_star_empty}"
+                        android:backgroundTint="@{data.isFavorite() ? @color/yellow : @color/gray}"
+                        android:backgroundTintMode="src_in"
+                        android:contentDescription="@string/image_view_content_desc"/>
+
+                    <ImageView
+                        android:id="@+id/arrow"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/ic_arrow_right"
+                        android:backgroundTint="@color/gray"
+                        android:backgroundTintMode="src_in"
+                        android:contentDescription="@string/image_view_content_desc"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
