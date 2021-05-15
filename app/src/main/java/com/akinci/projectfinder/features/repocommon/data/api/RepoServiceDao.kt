@@ -8,5 +8,5 @@ import retrofit2.http.Path
 
 interface RepoServiceDao {
     @GET(RestConfig.REPO_OWNER_URL)
-    suspend fun getUserRepository(@Path("userName") userName: String) : Response<List<RepoResponse>>
+    suspend fun getUserRepositories(@Path("userName") userName: String) : Response<List<RepoResponse>>
 }

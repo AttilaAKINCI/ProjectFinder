@@ -16,7 +16,7 @@ class RepoRepository @Inject constructor(
 ) : BaseRepositoryImpl(networkChecker) {
 
     suspend fun fetchUserRepository(userName: String): Resource<List<RepoResponse>>
-        = callService { repoServiceDao.getUserRepository(userName) }
+        = callService { repoServiceDao.getUserRepositories(userName) }
 
     suspend fun insertAllRepositories(repos : List<RepoEntity>) = repoDao.insertAllRepositories(repos)
     suspend fun insertRepository(repo : RepoEntity) = repoDao.insertRepository(repo)
