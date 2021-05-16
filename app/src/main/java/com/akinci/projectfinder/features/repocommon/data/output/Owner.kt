@@ -11,8 +11,8 @@ data class Owner(
     val gists_url: String?,
     val gravatar_id: String?,
     val html_url: String?,
-    val id: Int?,
-    val login: String?,
+    val id: Long,                       //not optional field.
+    val login: String,                  //not optional field.
     val node_id: String?,
     val organizations_url: String?,
     val received_events_url: String?,

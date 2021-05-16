@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -22,10 +23,105 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp"
+            android:background="@color/halfTransparentColorSoftWhite">
 
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/picture_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="60dp"
+                android:layout_margin="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/picture"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@string/image_view_content_desc" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/owner_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="35dp"
+                android:alpha="0"
+                tools:alpha="1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{@string/repo_owner + ' ' + vm.repoData.owner.login}"
+                tools:text="Repository Owner: AttilaAKINCI"
+                android:fontFamily="@font/ubuntu"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/picture_card"/>
+
+            <TextView
+                android:id="@+id/star_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:alpha="0"
+                tools:alpha="1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{@string/star_count + ' ' + vm.repoData.stargazers_count}"
+                tools:text="Star Count: 1"
+                android:fontFamily="@font/ubuntu"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/owner_name"
+                app:layout_constraintLeft_toRightOf="@+id/picture_card"/>
+
+            <TextView
+                android:id="@+id/open_issue_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:alpha="0"
+                tools:alpha="1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{@string/open_issue_count + ' ' + vm.repoData.open_issues_count}"
+                tools:text="Open Issue Count: 0"
+                android:fontFamily="@font/ubuntu"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/star_count"
+                app:layout_constraintLeft_toRightOf="@+id/picture_card"/>
+
+            <TextView
+                android:id="@+id/description_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:alpha="0"
+                tools:alpha="1"
+                android:text="@string/repo_description"
+                tools:text="Repository Description:"
+                android:fontFamily="@font/ubuntu"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/picture_card"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:alpha="0"
+                tools:alpha="1"
+                android:text="@{vm.repoData.description}"
+                tools:text="Description"
+                android:fontFamily="@font/ubuntu"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description_title"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </FrameLayout>
 </layout>

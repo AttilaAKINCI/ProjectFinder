@@ -21,6 +21,7 @@
 
     <color name="mainBg">@color/white</color>
     <color name="colorSoftWhite">#F9F9F9</color>
+    <color name="halfTransparentColorSoftWhite">#CCF9F9F9</color>
 
     <color name="shimmerColorSoft">#EEEEEE</color>
     <color name="shimmerColor">#AAAAAA</color>

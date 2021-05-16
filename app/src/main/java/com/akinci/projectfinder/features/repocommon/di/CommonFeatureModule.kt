@@ -27,12 +27,11 @@ object CommonFeatureModule {
             context.applicationContext,
             RepoDatabase::class.java,
             DB_NAME
-        ).fallbackToDestructiveMigration().build()
+        ).build()
 
     @Provides
     @Singleton
     fun provideRepoDao(db: RepoDatabase) = db.getRepoDao()
-
 
     @Provides
     @Singleton
@@ -47,6 +46,5 @@ object CommonFeatureModule {
         repoDao: RepoDao,
         networkChecker: NetworkChecker
     ) = RepoRepository(repoServiceDao, repoDao, networkChecker)
-
 
 }

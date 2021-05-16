@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_add_remove_fav"
+        android:id="@+id/action_fav"
         android:icon="@drawable/ic_star_empty"
         android:title=""
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:orderInCategory="0"/>
 </menu>

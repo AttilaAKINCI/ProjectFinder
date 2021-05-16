@@ -6,15 +6,21 @@
 
     <!--  Splash Fragment   -->
     <string name="title_splash">Splash</string>
+    <string name="splash_app_name">GitHub Repo Viewer</string>
 
     <!--  Repo Dashboard Fragment   -->
     <string name="title_dashboard">Repo Dashboard</string>
     <string name="edit_text_search_placeholder">Type a name of repository owner</string>
 
-
     <!--  Repo Detail Fragment   -->
     <string name="title_detail">Repo Detail</string>
+    <string name="repo_owner">Repository Owner:</string>
+    <string name="star_count">Star Count:</string>
+    <string name="open_issue_count">Open Issue Count:</string>
+    <string name="repo_description">Repository Description:</string>
 
+    <!--  Transition Key   -->
+    <string name="image_transition">Image Transition String</string>
 
     <string name="image_view_content_desc">Image View Content Description</string>
 

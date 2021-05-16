@@ -7,6 +7,7 @@ import com.akinci.projectfinder.features.repocommon.data.api.RepoServiceDao
 import com.akinci.projectfinder.features.repocommon.data.local.dao.RepoDao
 import com.akinci.projectfinder.features.repocommon.data.local.entities.RepoEntity
 import com.akinci.projectfinder.features.repocommon.data.output.RepoResponse
+import com.akinci.projectfinder.features.repocommon.data.output.convertRepoResponseToRepoEntity
 import javax.inject.Inject
 
 class RepoRepository @Inject constructor(
@@ -16,11 +17,10 @@ class RepoRepository @Inject constructor(
 ) : BaseRepositoryImpl(networkChecker) {
 
     suspend fun fetchUserRepository(userName: String): Resource<List<RepoResponse>>
-        = callService { repoServiceDao.getUserRepositories(userName) }
+            = callService { repoServiceDao.getUserRepositories(userName) }
 
-    suspend fun insertAllRepositories(repos : List<RepoEntity>) = repoDao.insertAllRepositories(repos)
-    suspend fun insertRepository(repo : RepoEntity) = repoDao.insertRepository(repo)
-    suspend fun deleteRepository(repo : RepoEntity) = repoDao.deleteRepository(repo)
-    fun getAllRepositories() = repoDao.getAllRepositories()
+    suspend fun insertRepository(repo : RepoResponse) = repoDao.insertRepository(repo.convertRepoResponseToRepoEntity())
+    suspend fun deleteRepository(repo : RepoResponse) = repoDao.deleteRepository(repo.convertRepoResponseToRepoEntity())
+    suspend fun getAllRepositories(ownerName: String): List<RepoEntity> = repoDao.getAllRepositories(ownerName)
 
 }

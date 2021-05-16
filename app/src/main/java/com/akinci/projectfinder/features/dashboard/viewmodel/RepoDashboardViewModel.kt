@@ -25,56 +25,75 @@ class RepoDashboardViewModel @Inject constructor(
     var searchFocusEnabled = MutableLiveData(true)
 
     // repo list data
+    private var _lastSearchedUserName = ""
+    private var _repoOwnerName = ""
+    private var _data = mutableListOf<RepoResponse>()
     private val _listData = MutableLiveData<Resource<List<RepoResponse>>>()
     val listData : LiveData<Resource<List<RepoResponse>>> = _listData
 
-    private val _favoriteRepositories : LiveData<List<RepoEntity>>
-
     init {
         Timber.d("RepoDashboardViewModel created..")
-
-        // fetch local room content for repositories.
-        _favoriteRepositories = repoRepository.getAllRepositories()
     }
 
-    fun fetchRepositories(userName : String){
-        // fetch data once
-        if(_listData.value == null){
+    fun updateRepositoryStates() {
+        if(_data.isNotEmpty() && _repoOwnerName.isNotBlank()){
+            // list content need to be previously fetched.
+
             viewModelScope.launch(coroutineContext.IO) {
-                Timber.tag("fetchRepos-VMScope").d("Top-level: current thread is ${Thread.currentThread().name}")
+                Timber.tag("fetchFav-VMScope").d("Top-level: current thread is ${Thread.currentThread().name}")
 
-                // send shimmer loading effect for first load
-                _listData.postValue(Resource.Loading())
-                delay(1000) // simulate network delay
+                val repoFavListForSearchedDeveloper = repoRepository.getAllRepositories(_repoOwnerName)
 
-                when(val repoResponse = repoRepository.fetchUserRepository(userName)){
-                    is Resource.Success -> {
-                        repoResponse.data?.let { data ->
-                            Timber.d("Repo api service fetched ${data.size} repos")
-
-                            // repository data is fetched so favorite conditions should be attached in here.
-                            data.map {
-                                _favoriteRepositories.value?.let { localData ->
-                                    if(localData.filter{localIds -> localIds.favoriteRepoId == it.id}.any()){
-                                        it.isFavorite = true
-                                    }
-                                }
-                            }
-
-                            _listData.postValue(Resource.Success(data))
-                        }
-                    }
-                    is Resource.Error -> {
-                        // error occurred while fetching repos
-                        _listData.postValue(Resource.Error(repoResponse.message))
+                _data.map {
+                    if(repoFavListForSearchedDeveloper.isNotEmpty()){
+                        // if I have favorite repository data, consider value of isFavorite using it.
+                        it.isFavorite = repoFavListForSearchedDeveloper.filter{ localIds -> localIds.id == it.id}.any()
+                    }else{
+                        // if we don't have favorite repository data, assume there is not any favorite repository
+                        it.isFavorite = false
                     }
                 }
+
+                _listData.postValue(Resource.Success(_data))
             }
         }
     }
 
-//    fun getSelectedRepository(selectedPosition : Int) : RepoResponse {
-//
-//    }
+    // only calls with search button.
+    fun fetchRepositories(userName : String) = viewModelScope.launch(coroutineContext.IO) {
+        Timber.tag("fetchRepos-VMScope").d("Top-level: current thread is ${Thread.currentThread().name}")
+
+        if(_lastSearchedUserName != userName){
+            // Check last searched username so as to prevent unnecessary service call
+
+            _lastSearchedUserName = userName
+
+            // send shimmer loading effect for first load
+            _listData.postValue(Resource.Loading())
+            delay(1000) // simulate network delay
+
+            when(val repoResponse = repoRepository.fetchUserRepository(userName)){
+                is Resource.Success -> {
+                    repoResponse.data?.let { data ->
+                        Timber.d("Repo api service fetched ${data.size} repos")
+                        _repoOwnerName = data.first().owner.login
+                        _data = data.toMutableList()
+                        updateRepositoryStates()
+                    }
+                }
+                is Resource.Error -> {
+                    // error occurred while fetching repos
+                    _listData.postValue(Resource.Error(repoResponse.message))
+                }
+            }
+        }else{
+            _listData.postValue(Resource.Info("Search Keyword recently used. Please type different search key"))
+        }
+    }
+
+    fun getSelectedRepository(selectedPosition : Int) : RepoResponse? {
+        if(_data.isNotEmpty()){ return _data[selectedPosition] }
+        return null
+    }
 
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.NavHostFragment
 import com.akinci.projectfinder.R
 import com.akinci.projectfinder.common.component.SnackBar
@@ -46,12 +47,17 @@ class RepoDashboardFragment : Fragment() {
         binding.tileBackground.setTiledImageDrawable(R.drawable.pattern)
 
         // repo listing adapter
-        repoListAdapter = RepoListAdapter(clickListener = { repoRowId ->
+        repoListAdapter = RepoListAdapter(clickListener = { view, position ->
             // catch news row clicks and navigate to repo Detail fragment
             Timber.d("Navigation to repo detail fragment")
 
+            val extras = FragmentNavigatorExtras(
+                view to position.toString()
+            )
+
             NavHostFragment.findNavController(this).navigate(
-                actionRepoDashboardFragmentToRepoDetailFragment(repoRowId)
+                actionRepoDashboardFragmentToRepoDetailFragment(position),
+                extras
             )
         })
 
@@ -74,6 +80,13 @@ class RepoDashboardFragment : Fragment() {
         return binding.root
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        // update content for favorite selection
+        repoDashboardViewModel.updateRepositoryStates()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -91,19 +104,23 @@ class RepoDashboardFragment : Fragment() {
                     Timber.d("Shimmer activated")
                     binding.recyclerList.adapter = shimmerAdapter
                 }
+                is Resource.Info -> {
+                    // show info message on snackBar
+                    SnackBar.makeLarge(binding.root, it.message, SnackBar.LENGTH_SHORT).show()
+                }
                 is Resource.Success -> {
                     // send data to news adapter
                     it.data?.let { data ->
                         Timber.d("repos are displayed")
-                        binding.recyclerList.adapter = repoListAdapter
                         repoListAdapter.submitList(data)
+                        binding.recyclerList.adapter = repoListAdapter
                     }
                 }
                 is Resource.Error -> {
                     // show error message on snackBar
+                    binding.recyclerList.adapter = null
                     SnackBar.makeLarge(binding.root, it.message, SnackBar.LENGTH_LONG).show()
                 }
-
             }
         }
     }

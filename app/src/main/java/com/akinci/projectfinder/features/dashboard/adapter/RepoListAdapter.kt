@@ -1,7 +1,9 @@
 package com.akinci.projectfinder.features.dashboard.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +12,7 @@ import com.akinci.projectfinder.common.extension.setGlideImageCentered
 import com.akinci.projectfinder.databinding.RowReposBinding
 import com.akinci.projectfinder.features.repocommon.data.output.RepoResponse
 
-class RepoListAdapter(private val clickListener: (Int) -> Unit) : ListAdapter<RepoResponse, RepoListAdapter.RepoViewHolder>(NewsDiffCallback()) {
+class RepoListAdapter(private val clickListener: (View, Int) -> Unit) : ListAdapter<RepoResponse, RepoListAdapter.RepoViewHolder>(NewsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -23,12 +25,13 @@ class RepoListAdapter(private val clickListener: (Int) -> Unit) : ListAdapter<Re
     }
 
     class RepoViewHolder(val binding: RowReposBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: RepoResponse, position : Int , clickListener: (Int) -> Unit) {
+        fun bind(item: RepoResponse, position : Int , clickListener: (View, Int) -> Unit) {
             // fill row instances..
-            binding.repoCardView.setOnClickListener { clickListener.invoke(position) }
+            binding.repoImageContainer.transitionName = position.toString()
+            binding.repoCardView.setOnClickListener { clickListener.invoke(binding.repoImageContainer, position) }
             binding.data = item
 
-            item.owner?.avatar_url?.let {
+            item.owner.avatar_url?.let {
                 binding.repoImage.setGlideImageCentered(imageUrl = it, fallbackDrawableId = R.drawable.ic_person)
             }
 

@@ -1,5 +1,6 @@
 package com.akinci.projectfinder.features.repocommon.data.output
 
+import com.akinci.projectfinder.features.repocommon.data.local.entities.RepoEntity
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
@@ -40,7 +41,7 @@ data class RepoResponse(
     val homepage: String?,
     val hooks_url: String?,
     val html_url: String?,
-    val id: Long?,
+    val id: Long,                       //not optional field.
     val issue_comment_url: String?,
     val issue_events_url: String?,
     val issues_url: String?,
@@ -50,19 +51,19 @@ data class RepoResponse(
     val languages_url: String?,
     val merges_url: String?,
     val milestones_url: String?,
-    val name: String?,
+    val name: String,                  //not optional field.
     val node_id: String?,
     val notifications_url: String?,
     val open_issues: Int?,
-    val open_issues_count: Int?,
-    val owner: Owner?,
+    val open_issues_count: Int,        //not optional field.
+    val owner: Owner,                  //not optional field.
     val private: Boolean?,
     val pulls_url: String?,
     val pushed_at: String?,
     val releases_url: String?,
     val size: Int?,
     val ssh_url: String?,
-    val stargazers_count: Int?,
+    val stargazers_count: Int,         //not optional field.
     val stargazers_url: String?,
     val statuses_url: String?,
     val subscribers_url: String?,
@@ -75,5 +76,10 @@ data class RepoResponse(
     val url: String?,
     val watchers: Int?,
     val watchers_count: Int?,
-    var isFavorite: Boolean?
+    var isFavorite:Boolean = false
 )
+
+/** For conversion between network object and ROOM Database entity**/
+fun RepoResponse.convertRepoResponseToRepoEntity() : RepoEntity {
+    return RepoEntity(id = id, ownerName = owner.login)
+}

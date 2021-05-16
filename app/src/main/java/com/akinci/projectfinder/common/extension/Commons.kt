@@ -20,6 +20,14 @@ fun ImageView.setTiledImageDrawable(tiledPattern: Int) {
 }
 /*************************************************************************************************/
 
+/***************************************** Animation *********************************************/
+fun View.animateAlpha(value: Float, duration: Long){
+    animate().alpha(value)
+             .setDuration(duration)
+             .start()
+}
+/*************************************************************************************************/
+
 /********************************* Keyboard management related  *********************************/
 fun Fragment.hideKeyboard() {
     view?.let { activity?.hideKeyboard(it) }
