@@ -64,9 +64,7 @@ object AppModule {
     @Provides
     @Singleton
     @RestHttpClient
-    fun provideRestOkHttpClient(
-            @ApplicationContext context: Context
-    ) : OkHttpClient {
+    fun provideRestOkHttpClient() : OkHttpClient {
         val builder = OkHttpClient.Builder()
 
         if (BuildConfig.DEBUG) {

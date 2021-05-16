@@ -1,19 +1,15 @@
 package com.akinci.projectfinder.features.detail.view
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.*
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.transition.Fade
 import androidx.transition.TransitionInflater
-import androidx.transition.TransitionSet
 import com.akinci.projectfinder.R
 import com.akinci.projectfinder.common.activity.RootActivity
 import com.akinci.projectfinder.common.component.SnackBar

@@ -59,7 +59,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
-    //network retfofit & moshi
+    //network retrofit & moshi
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     implementation 'com.squareup.okhttp3:okhttp'
@@ -98,7 +98,7 @@ dependencies {
     kapt 'androidx.hilt:hilt-compiler:1.0.0'
 
     // Room and Lifecycle dependencies
-    def room_version = "2.2.6"
+    def room_version = "2.3.0"
     implementation "androidx.room:room-runtime:${room_version}"
     kapt "androidx.room:room-compiler:${room_version}"
     implementation "androidx.room:room-ktx:${room_version}"
@@ -118,17 +118,17 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junit_5_version}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junit_5_version}"
     testImplementation "org.junit.jupiter:junit-jupiter-params:${junit_5_version}"
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
-    testImplementation 'com.google.truth:truth:1.0.1'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3"
+    testImplementation "com.google.truth:truth:1.0.1"
     testImplementation "io.mockk:mockk:1.10.6"
 
     // Instrumented Testes
-    androidTestImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'android.arch.core:core-testing:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    androidTestImplementation 'com.google.truth:truth:1.0.1'
-    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
-    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.31-alpha'   //hilt integration for testing
-    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.31-alpha'            //hilt integration for testing
+    androidTestImplementation "junit:junit:4.13.2"
+    androidTestImplementation "android.arch.core:core-testing:1.1.1"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0"
+    androidTestImplementation "com.google.truth:truth:1.0.1"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"   //hilt integration for testing
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"            //hilt integration for testing
 
 }
