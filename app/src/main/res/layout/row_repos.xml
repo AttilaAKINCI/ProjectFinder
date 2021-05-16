@@ -42,8 +42,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        app:cardCornerRadius="30dp"
-                        android:transitionGroup="true">
+                        app:cardCornerRadius="30dp">
 
                         <ImageView
                             android:id="@+id/repo_image"

@@ -27,12 +27,16 @@ class RepoListAdapter(private val clickListener: (View, Int) -> Unit) : ListAdap
     class RepoViewHolder(val binding: RowReposBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: RepoResponse, position : Int , clickListener: (View, Int) -> Unit) {
             // fill row instances..
-            binding.repoImageContainer.transitionName = position.toString()
-            binding.repoCardView.setOnClickListener { clickListener.invoke(binding.repoImageContainer, position) }
+            binding.repoImage.transitionName = position.toString()
+            binding.repoCardView.setOnClickListener { clickListener.invoke(binding.repoImage, position) }
             binding.data = item
 
             item.owner.avatar_url?.let {
-                binding.repoImage.setGlideImageCentered(imageUrl = it, fallbackDrawableId = R.drawable.ic_person)
+                binding.repoImage.setGlideImageCentered(
+                    imageUrl = it,
+                    fallbackDrawableId = R.drawable.ic_person,
+                    cornerRadius = binding.root.context.resources.getDimensionPixelSize(R.dimen.list_card_corner_radius)
+                )
             }
 
             binding.executePendingBindings()

@@ -2,4 +2,7 @@
 <resources>
     <dimen name="text_style_medium">15sp</dimen>
     <dimen name="line_height_button_primary">20sp</dimen>
+    <dimen name="detail_card_corner_radius">60dp</dimen>
+    <dimen name="list_card_corner_radius">30dp</dimen>
+
 </resources>

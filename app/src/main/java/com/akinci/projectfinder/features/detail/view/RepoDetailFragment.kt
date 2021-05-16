@@ -9,7 +9,9 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.transition.Transition
 import androidx.transition.TransitionInflater
+import androidx.transition.TransitionListenerAdapter
 import com.akinci.projectfinder.R
 import com.akinci.projectfinder.common.activity.RootActivity
 import com.akinci.projectfinder.common.component.SnackBar
@@ -50,8 +52,20 @@ class RepoDetailFragment : Fragment() {
             repoDetailViewModel.repoData = it
         }
 
-        binding.pictureCard.transitionName = repoDetailFragmentArgs.position.toString()
+        binding.picture.transitionName = repoDetailFragmentArgs.position.toString()
         sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
+//        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move).addListener(object : TransitionListenerAdapter() {
+//            override fun onTransitionEnd(transition: Transition) {
+//                // The current fragment transition should only be applied for this transition and be removed afterwards
+//                binding.ownerName.animateAlpha(1.0f, 200L)
+//                binding.starCount.animateAlpha(1.0f, 200L)
+//                binding.openIssueCount.animateAlpha(1.0f, 200L)
+//                binding.descriptionTitle.animateAlpha(1.0f, 200L)
+//                binding.description.animateAlpha(1.0f, 200L)
+//                exitTransition = null
+//            }
+//        })
 
         // set detail action bar title as Repository name
         (activity as RootActivity).binding.toolbar.title = repoDetailViewModel.repoData.name
@@ -68,6 +82,8 @@ class RepoDetailFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+    //    postponeEnterTransition()
+
         Handler(Looper.getMainLooper()).postDelayed({
             /** delayed content view **/
             binding.ownerName.animateAlpha(1.0f, 200L)
@@ -75,6 +91,10 @@ class RepoDetailFragment : Fragment() {
             binding.openIssueCount.animateAlpha(1.0f, 200L)
             binding.descriptionTitle.animateAlpha(1.0f, 200L)
             binding.description.animateAlpha(1.0f, 200L)
+
+            // fix card elevation here
+            binding.pictureCard.cardElevation = resources.getDimension(R.dimen.cardview_default_elevation)
+
         }, 400)
     }
 
@@ -82,7 +102,10 @@ class RepoDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // load detail page owner picture from URL
-        binding.picture.setGlideImageCentered(imageUrl = repoDetailViewModel.repoData.owner.avatar_url!!, fallbackDrawableId = R.drawable.ic_person)
+        binding.picture.setGlideImageCentered(
+            imageUrl = repoDetailViewModel.repoData.owner.avatar_url!!,
+            fallbackDrawableId = R.drawable.ic_person,
+            resources.getDimensionPixelSize(R.dimen.detail_card_corner_radius))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

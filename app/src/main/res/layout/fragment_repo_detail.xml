@@ -33,9 +33,10 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="60dp"
                 android:layout_margin="20dp"
+                app:cardBackgroundColor="@color/transparent"
+                app:cardElevation="0dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:transitionGroup="true">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/picture"

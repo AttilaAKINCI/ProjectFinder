@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -17,7 +16,6 @@ import com.akinci.projectfinder.common.extension.*
 import com.akinci.projectfinder.common.helper.Resource
 import com.akinci.projectfinder.databinding.FragmentRepoDashboardBinding
 import com.akinci.projectfinder.features.dashboard.adapter.RepoListAdapter
-import com.akinci.projectfinder.features.dashboard.view.RepoDashboardFragmentDirections.Companion.actionRepoDashboardFragmentToRepoDetailFragment
 import com.akinci.projectfinder.features.dashboard.viewmodel.RepoDashboardViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -48,23 +46,23 @@ class RepoDashboardFragment : Fragment() {
         binding.tileBackground.setTiledImageDrawable(R.drawable.pattern)
 
         // repo listing adapter
-        repoListAdapter = RepoListAdapter(clickListener = { view, position ->
+        repoListAdapter = RepoListAdapter(clickListener = { imageView, position ->
             // catch news row clicks and navigate to repo Detail fragment
             Timber.d("Navigation to repo detail fragment")
 
             val extras = FragmentNavigatorExtras(
-                view to position.toString()
+                imageView to position.toString()
             )
 
             NavHostFragment.findNavController(this).navigate(
-                actionRepoDashboardFragmentToRepoDetailFragment(position),
+                RepoDashboardFragmentDirections.actionRepoDashboardFragmentToRepoDetailFragment(position),
                 extras
             )
         })
 
         // search button click action
         binding.buttonSearch.setOnClickListener {
-            // valide search input.
+            // validate search input.
             if(binding.editTextSearchText.validateNotEmpty() &&
                     binding.editTextSearchText.validateNotBlank()){
                 // not null, not empty and not blank key can be searched.
