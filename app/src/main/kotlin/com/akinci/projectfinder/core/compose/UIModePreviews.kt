@@ -8,7 +8,5 @@ import androidx.compose.ui.tooling.preview.Preview
     uiMode = Configuration.UI_MODE_NIGHT_NO,
     showBackground = true,
 )
-@Preview(
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 annotation class UIModePreviews
