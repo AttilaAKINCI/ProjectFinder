@@ -1,6 +1,0 @@
-<resources>
-    <!-- Imaged Toolbar -->
-    <dimen name="imaged_toolbar_margin_end">18dp</dimen>
-    <dimen name="imaged_toolbar_width">200dp</dimen>
-    <dimen name="titleSize">18sp</dimen>
-</resources>
