@@ -12,6 +12,10 @@
     <string name="project_list_service_error">Unexpected service error occurred</string>
 
     <!-- Project Details -->
-
+    <string name="project_detail_title">Repository Details:</string>
+    <string name="project_detail_repository_name">Repository Name: %s</string>
+    <string name="project_detail_start_count">Like Count: %s</string>
+    <string name="project_detail_open_issue_count">Open issue Count: %s</string>
+    <string name="project_detail_language">Repository Language: %s</string>
 
 </resources>

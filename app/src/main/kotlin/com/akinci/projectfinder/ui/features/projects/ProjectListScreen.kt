@@ -49,6 +49,7 @@ import com.akinci.projectfinder.domain.projects.Project
 import com.akinci.projectfinder.ui.ds.components.GifImage
 import com.akinci.projectfinder.ui.ds.theme.ProjectFinderTheme
 import com.akinci.projectfinder.ui.features.destinations.ProjectDetailScreenDestination
+import com.akinci.projectfinder.ui.features.detail.ProjectDetailViewContract
 import com.akinci.projectfinder.ui.features.projects.ProjectListViewContract.State
 import com.akinci.projectfinder.ui.navigation.MainNavGraph
 import com.ramcosta.composedestinations.annotation.Destination
@@ -66,7 +67,13 @@ fun ProjectListScreen(
 
     ProjectListScreenContent(
         uiState = uiState,
-        openProjectDetail = { navigator.navigate(ProjectDetailScreenDestination) },
+        openProjectDetail = {
+            navigator.navigate(
+                ProjectDetailScreenDestination(
+                    ProjectDetailViewContract.ScreenArgs(it)
+                )
+            )
+        },
         updateSearchValue = { vm.updateSearchValue(it) },
         onSearchClick = { vm.search() }
     )
@@ -77,7 +84,7 @@ private fun ProjectListScreenContent(
     uiState: State,
     updateSearchValue: (String) -> Unit,
     onSearchClick: () -> Unit,
-    openProjectDetail: () -> Unit,
+    openProjectDetail: (Project) -> Unit,
 ) {
     Surface {
         Box(
@@ -182,7 +189,7 @@ private fun ProjectListScreen.Search(
 @Composable
 private fun ProjectListScreen.ProjectList(
     repositories: PersistentList<Project>,
-    openProjectDetail: () -> Unit
+    openProjectDetail: (Project) -> Unit
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
@@ -197,7 +204,7 @@ private fun ProjectListScreen.ProjectList(
                     .clickable(
                         indication = rememberRipple(),
                         interactionSource = remember { MutableInteractionSource() },
-                        onClick = openProjectDetail
+                        onClick = { openProjectDetail(it) }
                     ),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
@@ -227,7 +234,7 @@ private fun ProjectListScreen.NoData() {
             .fillMaxSize()
             .padding(bottom = 100.dp),
         contentAlignment = Alignment.Center,
-    ){
+    ) {
         Column {
             GifImage(
                 modifier = Modifier
@@ -240,7 +247,7 @@ private fun ProjectListScreen.NoData() {
                     .clip(MaterialTheme.shapes.large),
                 gifId = R.drawable.no_data,
             )
-            
+
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
@@ -262,7 +269,7 @@ private fun ProjectListScreen.Loading() {
             .fillMaxSize()
             .padding(bottom = 100.dp),
         contentAlignment = Alignment.Center,
-    ){
+    ) {
         CircularProgressIndicator()
     }
 }
@@ -274,7 +281,7 @@ private fun ProjectListScreen.ServiceError() {
             .fillMaxSize()
             .padding(bottom = 100.dp),
         contentAlignment = Alignment.Center,
-    ){
+    ) {
         Column {
             GifImage(
                 modifier = Modifier

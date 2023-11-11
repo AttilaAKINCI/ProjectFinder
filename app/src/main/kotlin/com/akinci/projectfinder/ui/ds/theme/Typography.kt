@@ -114,3 +114,8 @@ val AppTypography = Typography(
         fontWeight = W400,
     ),
 )
+
+val Typography.titleMediumBold: TextStyle
+    get() = AppTypography.titleMedium.copy(
+        fontWeight = W700,
+    )

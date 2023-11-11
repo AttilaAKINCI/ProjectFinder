@@ -2,6 +2,7 @@ package com.akinci.projectfinder.ui.features.projects
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.akinci.projectfinder.core.compose.reduce
 import com.akinci.projectfinder.core.coroutine.ContextProvider
 import com.akinci.projectfinder.core.network.exception.NotFound
 import com.akinci.projectfinder.data.projects.ProjectRepository
@@ -29,14 +30,16 @@ class ProjectListViewModel @Inject constructor(
     val stateFlow = _stateFlow.asStateFlow()
 
     fun updateSearchValue(searchText: String) {
-        _stateFlow.value = _stateFlow.value.copy(
-            searchText = searchText,
-            isSearchTextInvalid = false,
-            isServiceError = false,
-            isNoData = false,
-            isLoading = false,
-            repositories = persistentListOf(),
-        )
+        _stateFlow.reduce {
+            copy(
+                searchText = searchText,
+                isSearchTextInvalid = false,
+                isServiceError = false,
+                isNoData = false,
+                isLoading = false,
+                repositories = persistentListOf(),
+            )
+        }
     }
 
     fun search() {
@@ -44,7 +47,9 @@ class ProjectListViewModel @Inject constructor(
 
         if (searchText.isNotBlank()) {
             // switch UI to loading mode.
-            _stateFlow.value = _stateFlow.value.copy(isLoading = true)
+            _stateFlow.reduce {
+                copy(isLoading = true)
+            }
 
             viewModelScope.launch {
                 val state = withContext(contextProvider.io) {
@@ -100,9 +105,9 @@ class ProjectListViewModel @Inject constructor(
                 _stateFlow.value = state
             }
         } else {
-            _stateFlow.value = _stateFlow.value.copy(
-                isSearchTextInvalid = true,
-            )
+            _stateFlow.reduce {
+                copy(isSearchTextInvalid = true)
+            }
         }
     }
 }
