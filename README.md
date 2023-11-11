@@ -1,5 +1,5 @@
-# repoListing
-Android Kotlin application for repository listing for github
+# ProjectFinder -> Deprecated legacy branch discontinued support.
+XML based Android Kotlin application to list github repositories. **Renewed Compose version** is in master Branch
 
 [APK Link](https://drive.google.com/file/d/1mm8JB28nzSraKZ_Fm3KKdjM7dLMxtYSv/view?usp=sharing)
 
