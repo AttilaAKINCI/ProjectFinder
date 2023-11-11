@@ -11,17 +11,20 @@ class ProjectRepository @Inject constructor(
 ) {
 
     suspend fun getProjectRepositories(repositoryOwnerName: String) =
-        httpClient
-            .get("/users/$repositoryOwnerName/repos")
-            .toResponse<List<ProjectResponse>>()
-            .map { repositories ->
-                // we need to map network data to domain model
-                //  checking local stored favorite information
-                repositories.map {
-                    it.toDomain().copy(
-                        // TODO fix here.
-                        isFavorite = false
-                    )
-                }
-            }
+        runCatching {
+            httpClient
+                .get("/users/$repositoryOwnerName/repos")
+                .toResponse<List<ProjectResponse>>()
+                .map { repositories ->
+                    // we need to map network data to domain model
+                    //  checking local stored favorite information
+                    repositories.map {
+                        it.toDomain().copy(
+                            // TODO fix here.
+                            isFavorite = false
+                        )
+                    }
+                }.getOrThrow()
+        }
+
 }
