@@ -21,6 +21,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Button
@@ -37,6 +39,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -45,6 +48,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.akinci.projectfinder.R
 import com.akinci.projectfinder.core.compose.UIModePreviews
+import com.akinci.projectfinder.domain.projects.Owner
 import com.akinci.projectfinder.domain.projects.Project
 import com.akinci.projectfinder.ui.ds.components.GifImage
 import com.akinci.projectfinder.ui.ds.theme.ProjectFinderTheme
@@ -55,6 +59,7 @@ import com.akinci.projectfinder.ui.navigation.MainNavGraph
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.collections.immutable.PersistentList
+import kotlinx.collections.immutable.persistentListOf
 
 @MainNavGraph(start = true)
 @Destination
@@ -217,6 +222,21 @@ private fun ProjectListScreen.ProjectList(
                     style = MaterialTheme.typography.bodyMedium,
                 )
 
+                if (it.isFavorite){
+                    Icon(
+                        modifier = Modifier.padding(end = 8.dp),
+                        imageVector = Icons.Default.Favorite,
+                        contentDescription = null,
+                        tint = Color.Red,
+                    )
+                }else{
+                    Icon(
+                        modifier = Modifier.padding(end = 8.dp),
+                        imageVector = Icons.Default.FavoriteBorder,
+                        contentDescription = null,
+                    )
+                }
+
                 Icon(
                     modifier = Modifier.padding(end = 8.dp),
                     imageVector = Icons.Default.KeyboardArrowRight,
@@ -314,7 +334,30 @@ private fun ProjectListScreen.ServiceError() {
 fun ProjectListScreenPreview() {
     ProjectFinderTheme {
         ProjectListScreenContent(
-            uiState = State(searchText = ""),
+            uiState = State(
+                searchText = "AttilaAKINCI",
+                isNoData = false,
+                isLoading = false,
+                isServiceError = false,
+                isSearchTextInvalid = false,
+                repositories = persistentListOf(
+                    Project(
+                        id = 1000L,
+                        name = "Sample repository",
+                        url = "",
+                        owner = Owner(
+                            id = 10,
+                            name = "Owner",
+                            avatarUrl = "",
+                        ),
+                        starCount = 1,
+                        openIssueCount = 2,
+                        language = "kotlin",
+                        description = "Sample Description",
+                        isFavorite = false,
+                    )
+                )
+            ),
             openProjectDetail = {},
             updateSearchValue = {},
             onSearchClick = {},
