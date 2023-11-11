@@ -5,4 +5,6 @@ import javax.inject.Inject
 
 class AppConfig @Inject constructor() {
     fun isDebugMode() = BuildConfig.DEBUG
+
+    fun getServiceEndpointBaseUrl() = BuildConfig.SERVICE_ENDPOINT_BASE_URL
 }

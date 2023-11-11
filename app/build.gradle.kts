@@ -1,16 +1,17 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-parcelize")
-    id("de.mannodermaus.android-junit5") version "1.9.3.0"
     id("com.google.devtools.ksp")
+    kotlin("plugin.serialization") version "1.9.10"
+    id("kotlin-parcelize")
     id("com.google.dagger.hilt.android")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    id("de.mannodermaus.android-junit5") version "1.9.3.0"
 }
 
 repositories {
     google()
     mavenCentral()
-    maven("https://oss.sonatype.org/content/repositories/snapshots/")
 }
 
 android {
@@ -60,7 +61,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
 
     lint {
@@ -89,20 +90,22 @@ android {
 
 dependencies {
     val lifecycleVersion = "2.6.2"
-    val composeBomVersion = "2023.10.01"
+    val composeBomVersion = "2023.10.00"
     val jUnit5Version = "5.10.1"
     val coroutinesVersion = "1.7.3"
     val hiltVersion = "2.48.1"
     val composeDestinationsVersion = "1.9.54"
     val ktorVersion = "2.3.6"
     val roomVersion = "2.6.0"
+    val coilVersion = "2.5.0"
 
     // CORE
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6")
 
     // IMAGE LOADING
-    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("io.coil-kt:coil-compose:$coilVersion")
+    implementation("io.coil-kt:coil-gif:$coilVersion")
 
     // NETWORK
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
