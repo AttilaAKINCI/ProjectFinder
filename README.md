@@ -12,13 +12,13 @@ In order to run project in your local be aware below points ->
 
 ## App Video
 
-     Validation Error         Normal Run         Remember Favorite           No Data            Service Error       
+     Validation Error      Normal Run      Remember Favorite        No Data         Service Error       
 
-<img src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/e8a3746c-35e9-4487-a3a1-9219df3ade6e" width="150"/> <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/53366e5b-0c23-4093-89e9-a0010d2428c9" width="150"/>  <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/ffa04e5b-2f06-478e-bc62-5ed509f6a2f8" width="150"/>  <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/14c531fb-4c77-4f96-8a15-a42297075b46" width="150"/>  <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/8d2bd069-6b1d-4d9e-a956-7517ea8cd569" width="150"/>
+<img src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/e8a3746c-35e9-4487-a3a1-9219df3ade6e" width="160"/> <img 
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/53366e5b-0c23-4093-89e9-a0010d2428c9" width="160"/>  <img 
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/ffa04e5b-2f06-478e-bc62-5ed509f6a2f8" width="160"/>  <img 
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/14c531fb-4c77-4f96-8a15-a42297075b46" width="160"/>  <img 
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/8d2bd069-6b1d-4d9e-a956-7517ea8cd569" width="160"/>
 
 
 ## 3rd party lib. usages & Tech Specs
@@ -63,23 +63,23 @@ src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/8d2bd069-6b1d
 #### ScreenShots
 Light Mode:
 
-<img src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/1-light.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/2-light.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/3-light.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/4-light.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/5-light.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/6-light.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/7-light.png" width="130">
+<img src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/1-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/2-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/3-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/4-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/5-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/6-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/7-light.png" width="110">
 
 Dark Mode:
 
-<img src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/1-dark.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/2-dark.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/3-dark.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/4-dark.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/5-dark.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/6-dark.png" width="130">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/7-dark.png" width="130">
+<img src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/1-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/2-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/3-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/4-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/5-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/6-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/7-dark.png" width="110">
 
 # License
 
