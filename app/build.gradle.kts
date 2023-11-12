@@ -152,9 +152,6 @@ dependencies {
     implementation("com.jakewharton.timber:timber:5.0.1")
 
     // UNIT TESTING
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
-
     testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnit5Version")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnit5Version")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$jUnit5Version")
@@ -163,8 +160,4 @@ dependencies {
     testImplementation("io.mockk:mockk:1.13.8")
     testImplementation("app.cash.turbine:turbine:1.0.0")
     implementation("io.ktor:ktor-client-mock:$ktorVersion")
-
-    // UI TESTING
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:$composeBomVersion"))
 }
