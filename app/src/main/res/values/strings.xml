@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Project Finder</string>
+
+    <!-- Screen names -->
+    <string name="screen_name_project_details">Project Details</string>
+
+    <!-- Project List -->
+    <string name="project_list_repository_owner">Repository Owner</string>
+    <string name="project_list_search">Search</string>
+    <string name="project_list_empty_search_text">Enter a valid search phrase</string>
+    <string name="project_list_no_data">There is not any Github user with given name or they haven\'t got any public repositories</string>
+    <string name="project_list_service_error">Unexpected service error occurred</string>
+
+    <!-- Project Details -->
+    <string name="project_detail_title">Repository Details:</string>
+    <string name="project_detail_repository_name">Repository Name: %s</string>
+    <string name="project_detail_start_count">Like Count: %s</string>
+    <string name="project_detail_open_issue_count">Open issue Count: %s</string>
+    <string name="project_detail_language">Repository Language: %s</string>
+
+</resources>
