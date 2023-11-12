@@ -1,14 +1,10 @@
 # ProjectFinder
-Android compose is a application to list github repositories.
-
-
-## Brief Description
-ProjectFinder 
+Android compose application to list github repositories.
 
 [APK Link (https://drive.google.com/file/d/1MoFGXj-Hkvbjd5_ZXQAkkwessuwv5rOg/view?usp=sharing)](https://drive.google.com/file/d/1MoFGXj-Hkvbjd5_ZXQAkkwessuwv5rOg/view?usp=sharing)
 
 ## How to run
-In order to run project in your local be aware below points
+In order to run project in your local be aware below points ->
 * Developed by Android Studio Hedgehog | 2023.1.1 RC 3 Build #AI-231.9392.1.2311.11047128, built on November 3, 2023
 * checkout master branch
 * add *SERVICE_ENDPOINT_BASE_URL=https://api.github.com* to your local.properties file.
@@ -16,13 +12,13 @@ In order to run project in your local be aware below points
 
 ## App Video
 
-       Validation Error           Normal Run        Remember Favorite           No Data           Service Error       
+     Validation Error         Normal Run         Remember Favorite           No Data            Service Error       
 
-<img src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/49172c50-9e5f-42ab-a6dd-b609733b5d1d" width="130"/> <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/5e9e5afc-853f-4706-9c46-413ae657751b" width="130"/>  <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/615e1fda-96d8-4c8c-96f3-3ead7a866c1a" width="130"/>  <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/53318024-dfed-4f3a-85ef-4535e4e94e50" width="130"/>  <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/aae50414-737e-4b1d-8194-7d441a4593a0" width="130"/>
+<img src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/e8a3746c-35e9-4487-a3a1-9219df3ade6e" width="180"/> <img 
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/53366e5b-0c23-4093-89e9-a0010d2428c9" width="180"/>  <img 
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/ffa04e5b-2f06-478e-bc62-5ed509f6a2f8" width="180"/>  <img 
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/14c531fb-4c77-4f96-8a15-a42297075b46" width="180"/>  <img 
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/8d2bd069-6b1d-4d9e-a956-7517ea8cd569" width="180"/>
 
 
 ## 3rd party lib. usages & Tech Specs
