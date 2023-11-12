@@ -6,7 +6,7 @@ import javax.inject.Inject
 /**
  * HttpEngineFactory encapsulation is created to mock network requests for unit tests
  * **/
-class HttpEngineFactory @Inject constructor() {
+open class HttpEngineFactory @Inject constructor() {
 
-    fun create() = OkHttp.create()
+    open fun create() = OkHttp.create()
 }

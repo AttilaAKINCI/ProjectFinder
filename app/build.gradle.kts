@@ -162,6 +162,7 @@ dependencies {
     testImplementation("io.kotest:kotest-assertions-core:5.8.0")
     testImplementation("io.mockk:mockk:1.13.8")
     testImplementation("app.cash.turbine:turbine:1.0.0")
+    implementation("io.ktor:ktor-client-mock:$ktorVersion")
 
     // UI TESTING
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

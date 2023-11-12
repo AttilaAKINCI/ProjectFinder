@@ -20,5 +20,4 @@ class ProjectRepository @Inject constructor(
                     repositories.map { it.toDomain() }
                 }.getOrThrow()
         }
-
 }
