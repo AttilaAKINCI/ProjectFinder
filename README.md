@@ -12,7 +12,7 @@ In order to run project in your local be aware below points ->
 
 ## App Video
 
-     Validation Error    Normal Run        Remember Favorite        No Data         Service Error       
+     Validation Error      Normal Run      Remember Favorite        No Data         Service Error       
 
 <img src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/e8a3746c-35e9-4487-a3a1-9219df3ade6e" width="160"/> <img 
 src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/53366e5b-0c23-4093-89e9-a0010d2428c9" width="160"/>  <img 
