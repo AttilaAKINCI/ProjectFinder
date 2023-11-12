@@ -3,6 +3,11 @@ Android compose application to list github repositories.
 
 [APK Link (https://drive.google.com/file/d/1MoFGXj-Hkvbjd5_ZXQAkkwessuwv5rOg/view?usp=sharing)](https://drive.google.com/file/d/1MoFGXj-Hkvbjd5_ZXQAkkwessuwv5rOg/view?usp=sharing)
 
+Wireframe:
+
+![wireframe](https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/5acde5a6-6c9c-4ffb-a438-bd0f2ede7100)
+
+
 ## How to run
 In order to run project in your local be aware below points ->
 * Developed by Android Studio Hedgehog | 2023.1.1 RC 3 Build #AI-231.9392.1.2311.11047128, built on November 3, 2023
