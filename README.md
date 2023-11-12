@@ -63,23 +63,23 @@ src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/8d2bd069-6b1d
 #### ScreenShots
 Light Mode:
 
-<img src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/1-light.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/2-light.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/3-light.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/4-light.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/5-light.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/6-light.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/7-light.png" width="110">
+<img src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/1-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/2-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/3-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/4-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/5-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/6-light.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/7-light.png" width="110">
 
 Dark Mode:
 
-<img src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/1-dark.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/2-dark.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/3-dark.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/4-dark.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/5-dark.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/6-dark.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/compose/images/7-dark.png" width="110">
+<img src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/1-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/2-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/3-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/4-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/5-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/6-dark.png" width="110">   <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/7-dark.png" width="110">
 
 # License
 
