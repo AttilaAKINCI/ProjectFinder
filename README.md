@@ -17,13 +17,13 @@ In order to run project in your local be aware below points ->
 
 ## App Video
 
-     Validation Error      Normal Run      Remember Favorite        No Data         Service Error       
+    Validation Error        No Data          Service Error     Remember Favorite      Normal Run       
 
 <img src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/e8a3746c-35e9-4487-a3a1-9219df3ade6e" width="160"/> <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/53366e5b-0c23-4093-89e9-a0010d2428c9" width="160"/>  <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/ffa04e5b-2f06-478e-bc62-5ed509f6a2f8" width="160"/>  <img 
 src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/14c531fb-4c77-4f96-8a15-a42297075b46" width="160"/>  <img 
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/8d2bd069-6b1d-4d9e-a956-7517ea8cd569" width="160"/>
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/8d2bd069-6b1d-4d9e-a956-7517ea8cd569" width="160"/> <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/c3eed3ad-fb74-4731-bd01-d6c9046026e2" width="160"/>  <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/5e7372a1-bbd1-4b40-839a-f22b1f7101f8" width="160"/> 
 
 
 ## 3rd party lib. usages & Tech Specs
@@ -36,27 +36,32 @@ src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/8d2bd069-6b1d
     - Repository
 * [JetPack Compose](https://developer.android.com/jetpack/compose?gclid=Cj0KCQiAjMKqBhCgARIsAPDgWlyVg8bZaasX_bdQfYrAXsuDQ6vD-2SmFcTv34Fb-jLQxgGqPD7UxKgaAso5EALw_wcB&gclsrc=aw.ds)
 * [Edge to Edge UI design](https://developer.android.com/jetpack/compose/layouts/insets)
+* Shimmer Loading
+* Native Splash Screen
 * Dark/Light UI Mode 
 * [Compose Destinations](https://github.com/raamcosta/compose-destinations) / [Documentation](https://composedestinations.rafaelcosta.xyz/)
 * [Room Database](https://developer.android.com/jetpack/androidx/releases/room)
     - Suspend response handling
     - Reactive Flow response handling
 * [Ktor Client](https://ktor.io/docs/client-supported-platforms.html)
+* [Lottie Animations](https://github.com/airbnb/lottie-android)
 * [Coil](https://github.com/coil-kt/coil)
     - Asynch image loading
     - Gif play support
 * [Timber Client logging](https://github.com/JakeWharton/timber)
 * [Dependency Injection (HILT)](https://developer.android.com/training/dependency-injection/hilt-android)
-* Unit testing
 * [Turbine](https://github.com/cashapp/turbine)
 * [MockK](https://mockk.io/)
+* Unit testing
 * Junit5
 
 
 #### UI Flow
-1- App starts with native splash screen then, user is navigated to project list screen
+1- App starts with custom splash screen then, user is navigated to project list screen
 
 2- In project list screen, user can enter usernames to "Repository Owner" input field and search corresponding user repositories.
+
+3- Repositories are listed after shimmer loading animation
 
 3- If repository liked before, it will be remembered and user can see like icon on project list.
 
@@ -74,7 +79,7 @@ src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/3-light.pn
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/4-light.png" width="110">   <img
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/5-light.png" width="110">   <img
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/6-light.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/7-light.png" width="110">
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/7_1-light.png" width="110">
 
 Dark Mode:
 
@@ -84,7 +89,7 @@ src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/3-dark.png
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/4-dark.png" width="110">   <img
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/5-dark.png" width="110">   <img
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/6-dark.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/7-dark.png" width="110">
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/7_1-dark.png" width="110">
 
 # License
 
