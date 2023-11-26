@@ -81,7 +81,11 @@ class ProjectListViewModel @Inject constructor(
         if (searchText.isNotBlank()) {
             // switch UI to loading mode.
             _stateFlow.reduce {
-                copy(isShimmerLoading = true)
+                copy(
+                    isShimmerLoading = true,
+                    isNoData = false,
+                    isServiceError = false,
+                )
             }
 
             viewModelScope.launch {
