@@ -1,7 +1,7 @@
 package com.akinci.projectfinder.ui.features.projects
 
 import com.akinci.projectfinder.core.compose.UIState
-import com.akinci.projectfinder.domain.projects.Project
+import com.akinci.projectfinder.domain.Project
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.persistentListOf
 

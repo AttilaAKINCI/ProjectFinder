@@ -13,13 +13,15 @@ val BlueDark = Color(0xFF4189EF)
 val Gray = Color(0xFFEAEAEA)
 val GrayDark = Color(0xFF333333)
 
-val Black = Color(0xFF000000)
+val Black = Color(0xFF131313)
 
 val LightColorScheme = lightColorScheme(
     primary = Blue,
     onPrimary = White,
     secondary = Gray,
     onSecondary = White,
+    surface = White,
+    background = White,
     onBackground = Black,
 )
 
@@ -28,5 +30,7 @@ val DarkColorScheme = darkColorScheme(
     onPrimary = WhiteDark,
     secondary = GrayDark,
     onSecondary = WhiteDark,
+    background = Black,
+    surface = Black,
     onBackground = WhiteDark
 )

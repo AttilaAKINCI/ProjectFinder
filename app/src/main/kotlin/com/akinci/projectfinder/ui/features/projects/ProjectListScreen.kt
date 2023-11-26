@@ -48,20 +48,20 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.akinci.projectfinder.R
 import com.akinci.projectfinder.core.compose.UIModePreviews
-import com.akinci.projectfinder.domain.projects.Owner
-import com.akinci.projectfinder.domain.projects.Project
+import com.akinci.projectfinder.domain.Owner
+import com.akinci.projectfinder.domain.Project
 import com.akinci.projectfinder.ui.ds.components.GifImage
 import com.akinci.projectfinder.ui.ds.theme.ProjectFinderTheme
 import com.akinci.projectfinder.ui.features.destinations.ProjectDetailScreenDestination
 import com.akinci.projectfinder.ui.features.detail.ProjectDetailViewContract
 import com.akinci.projectfinder.ui.features.projects.ProjectListViewContract.State
-import com.akinci.projectfinder.ui.navigation.MainNavGraph
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.persistentListOf
 
-@MainNavGraph(start = true)
+@RootNavGraph
 @Destination
 @Composable
 fun ProjectListScreen(
@@ -222,14 +222,14 @@ private fun ProjectListScreen.ProjectList(
                     style = MaterialTheme.typography.bodyMedium,
                 )
 
-                if (it.isFavorite){
+                if (it.isFavorite) {
                     Icon(
                         modifier = Modifier.padding(end = 8.dp),
                         imageVector = Icons.Default.Favorite,
                         contentDescription = null,
                         tint = Color.Red,
                     )
-                }else{
+                } else {
                     Icon(
                         modifier = Modifier.padding(end = 8.dp),
                         imageVector = Icons.Default.FavoriteBorder,

@@ -101,11 +101,15 @@ dependencies {
 
     // CORE
     implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6")
 
     // IMAGE LOADING
     implementation("io.coil-kt:coil-compose:$coilVersion")
     implementation("io.coil-kt:coil-gif:$coilVersion")
+
+    // ANIMATIONS
+    implementation("com.airbnb.android:lottie-compose:6.2.0")
 
     // NETWORK
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
@@ -118,7 +122,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
     // COMPOSE
-    implementation("androidx.activity:activity-compose:1.8.0")
+    implementation("androidx.activity:activity-compose:1.8.1")
     implementation(platform("androidx.compose:compose-bom:$composeBomVersion"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")

@@ -1,7 +1,7 @@
 package com.akinci.projectfinder.data.projects.remote
 
-import com.akinci.projectfinder.domain.projects.Owner
-import com.akinci.projectfinder.domain.projects.Project
+import com.akinci.projectfinder.domain.Owner
+import com.akinci.projectfinder.domain.Project
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonNames

@@ -6,7 +6,7 @@ import com.akinci.projectfinder.core.compose.reduce
 import com.akinci.projectfinder.core.coroutine.ContextProvider
 import com.akinci.projectfinder.core.network.exception.NotFound
 import com.akinci.projectfinder.data.favorite.FavoritesRepository
-import com.akinci.projectfinder.domain.projects.ProjectUseCase
+import com.akinci.projectfinder.domain.ProjectUseCase
 import com.akinci.projectfinder.ui.features.projects.ProjectListViewContract.State
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.persistentListOf

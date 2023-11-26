@@ -5,8 +5,8 @@ import app.cash.turbine.test
 import com.akinci.projectfinder.core.coroutines.MainDispatcherRule
 import com.akinci.projectfinder.core.coroutines.TestContextProvider
 import com.akinci.projectfinder.data.favorite.FavoritesRepository
-import com.akinci.projectfinder.domain.projects.Owner
-import com.akinci.projectfinder.domain.projects.Project
+import com.akinci.projectfinder.domain.Owner
+import com.akinci.projectfinder.domain.Project
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify

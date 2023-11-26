@@ -5,9 +5,9 @@ import com.akinci.projectfinder.core.coroutines.MainDispatcherRule
 import com.akinci.projectfinder.core.coroutines.TestContextProvider
 import com.akinci.projectfinder.core.network.exception.NotFound
 import com.akinci.projectfinder.data.favorite.FavoritesRepository
-import com.akinci.projectfinder.domain.projects.Owner
-import com.akinci.projectfinder.domain.projects.Project
-import com.akinci.projectfinder.domain.projects.ProjectUseCase
+import com.akinci.projectfinder.domain.Owner
+import com.akinci.projectfinder.domain.Project
+import com.akinci.projectfinder.domain.ProjectUseCase
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk

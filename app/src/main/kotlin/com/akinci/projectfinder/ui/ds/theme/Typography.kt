@@ -10,12 +10,12 @@ import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.sp
 import com.akinci.projectfinder.R
 
-private val Inter = FontFamily(
+private val Roboto = FontFamily(
     Font(R.font.roboto_regular),
 )
 
 val textStyle = TextStyle(
-    fontFamily = Inter,
+    fontFamily = Roboto,
     lineHeightStyle = LineHeightStyle(
         alignment = LineHeightStyle.Alignment.Center,
         trim = LineHeightStyle.Trim.None,
