@@ -1,4 +1,4 @@
-package com.akinci.projectfinder.domain.projects
+package com.akinci.projectfinder.domain
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

@@ -1,4 +1,4 @@
-package com.akinci.projectfinder.domain.projects
+package com.akinci.projectfinder.domain
 
 import com.akinci.projectfinder.data.favorite.FavoritesRepository
 import com.akinci.projectfinder.data.projects.ProjectRepository
