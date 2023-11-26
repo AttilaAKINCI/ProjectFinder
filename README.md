@@ -74,7 +74,7 @@ src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/3-light.pn
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/4-light.png" width="110">   <img
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/5-light.png" width="110">   <img
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/6-light.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/7-light.png" width="110">
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/7_1-light.png" width="110">
 
 Dark Mode:
 
@@ -84,7 +84,7 @@ src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/3-dark.png
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/4-dark.png" width="110">   <img
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/5-dark.png" width="110">   <img
 src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/6-dark.png" width="110">   <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/7-dark.png" width="110">
+src="https://github.com/AttilaAKINCI/ProjectFinder/blob/master/images/7_1-dark.png" width="110">
 
 # License
 
