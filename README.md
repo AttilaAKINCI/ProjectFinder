@@ -22,8 +22,8 @@ In order to run project in your local be aware below points ->
 <img src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/e8a3746c-35e9-4487-a3a1-9219df3ade6e" width="160"/> <img 
 src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/14c531fb-4c77-4f96-8a15-a42297075b46" width="160"/>  <img 
 src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/8d2bd069-6b1d-4d9e-a956-7517ea8cd569" width="160"/> <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/ffa04e5b-2f06-478e-bc62-5ed509f6a2f8" width="160"/>  <img
-src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/53366e5b-0c23-4093-89e9-a0010d2428c9" width="160"/> 
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/c3eed3ad-fb74-4731-bd01-d6c9046026e2" width="160"/>  <img
+src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/5e7372a1-bbd1-4b40-839a-f22b1f7101f8" width="160"/> 
 
 
 ## 3rd party lib. usages & Tech Specs
