@@ -76,7 +76,7 @@ class ProjectListViewModelTest {
         testedClass.search()
 
         testedClass.stateFlow.test {
-            awaitItem().isLoading shouldBe true
+            awaitItem().isShimmerLoading shouldBe true
             awaitItem().isNoData shouldBe true
             ensureAllEventsConsumed()
         }
@@ -92,12 +92,12 @@ class ProjectListViewModelTest {
         testedClass.search()
 
         testedClass.stateFlow.test {
-            awaitItem().isLoading shouldBe true
+            awaitItem().isShimmerLoading shouldBe true
 
             val state = awaitItem()
             state.isNoData shouldBe false
             state.isServiceError shouldBe false
-            state.isLoading shouldBe false
+            state.isShimmerLoading shouldBe false
             state.repositories.size shouldBe 2
             ensureAllEventsConsumed()
         }
@@ -113,12 +113,12 @@ class ProjectListViewModelTest {
         testedClass.search()
 
         testedClass.stateFlow.test {
-            awaitItem().isLoading shouldBe true
+            awaitItem().isShimmerLoading shouldBe true
 
             val state = awaitItem()
             state.isNoData shouldBe true
             state.isServiceError shouldBe false
-            state.isLoading shouldBe false
+            state.isShimmerLoading shouldBe false
             ensureAllEventsConsumed()
         }
     }
@@ -133,11 +133,11 @@ class ProjectListViewModelTest {
         testedClass.search()
 
         testedClass.stateFlow.test {
-            awaitItem().isLoading shouldBe true
+            awaitItem().isShimmerLoading shouldBe true
 
             val state = awaitItem()
             state.isServiceError shouldBe true
-            state.isLoading shouldBe false
+            state.isShimmerLoading shouldBe false
             ensureAllEventsConsumed()
         }
 

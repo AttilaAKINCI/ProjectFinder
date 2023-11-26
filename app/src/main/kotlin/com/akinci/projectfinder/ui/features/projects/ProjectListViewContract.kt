@@ -10,7 +10,8 @@ object ProjectListViewContract {
     data class State(
         val isServiceError: Boolean = false,
         val isNoData: Boolean = false,
-        val isLoading: Boolean = false,
+        val isShimmerLoading: Boolean = false,
+        val shimmerItemCount: Int = 15,
 
         val searchText: String,
         val isSearchTextInvalid: Boolean = false,

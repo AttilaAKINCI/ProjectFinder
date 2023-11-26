@@ -26,7 +26,6 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -51,6 +50,7 @@ import com.akinci.projectfinder.core.compose.UIModePreviews
 import com.akinci.projectfinder.domain.Owner
 import com.akinci.projectfinder.domain.Project
 import com.akinci.projectfinder.ui.ds.components.GifImage
+import com.akinci.projectfinder.ui.ds.components.Shimmer
 import com.akinci.projectfinder.ui.ds.theme.ProjectFinderTheme
 import com.akinci.projectfinder.ui.features.destinations.ProjectDetailScreenDestination
 import com.akinci.projectfinder.ui.features.detail.ProjectDetailViewContract
@@ -116,7 +116,10 @@ private fun ProjectListScreenContent(
                 when {
                     uiState.isServiceError -> ProjectListScreen.ServiceError()
                     uiState.isNoData -> ProjectListScreen.NoData()
-                    uiState.isLoading -> ProjectListScreen.Loading()
+                    uiState.isShimmerLoading -> ProjectListScreen.ShimmerLoading(
+                        shimmerItemCount = uiState.shimmerItemCount
+                    )
+
                     else -> ProjectListScreen.ProjectList(
                         repositories = uiState.repositories,
                         openProjectDetail = openProjectDetail,
@@ -186,6 +189,27 @@ private fun ProjectListScreen.Search(
                 text = stringResource(id = R.string.project_list_search),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onPrimary
+            )
+        }
+    }
+}
+
+@Composable
+private fun ProjectListScreen.ShimmerLoading(
+    shimmerItemCount: Int,
+) {
+    LazyColumn(
+        modifier = Modifier.fillMaxWidth(),
+        state = rememberLazyListState(),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        userScrollEnabled = false,
+    ) {
+        items((1..shimmerItemCount).toList()) {
+            Shimmer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(52.dp)
+                    .clip(MaterialTheme.shapes.extraSmall)
             )
         }
     }
@@ -283,18 +307,6 @@ private fun ProjectListScreen.NoData() {
 }
 
 @Composable
-private fun ProjectListScreen.Loading() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 100.dp),
-        contentAlignment = Alignment.Center,
-    ) {
-        CircularProgressIndicator()
-    }
-}
-
-@Composable
 private fun ProjectListScreen.ServiceError() {
     Box(
         modifier = Modifier
@@ -337,7 +349,7 @@ fun ProjectListScreenPreview() {
             uiState = State(
                 searchText = "AttilaAKINCI",
                 isNoData = false,
-                isLoading = false,
+                isShimmerLoading = false,
                 isServiceError = false,
                 isSearchTextInvalid = false,
                 repositories = persistentListOf(

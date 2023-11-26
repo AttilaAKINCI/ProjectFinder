@@ -69,7 +69,7 @@ class ProjectListViewModel @Inject constructor(
                 isSearchTextInvalid = false,
                 isServiceError = false,
                 isNoData = false,
-                isLoading = false,
+                isShimmerLoading = false,
                 repositories = persistentListOf(),
             )
         }
@@ -81,7 +81,7 @@ class ProjectListViewModel @Inject constructor(
         if (searchText.isNotBlank()) {
             // switch UI to loading mode.
             _stateFlow.reduce {
-                copy(isLoading = true)
+                copy(isShimmerLoading = true)
             }
 
             viewModelScope.launch {
@@ -95,14 +95,14 @@ class ProjectListViewModel @Inject constructor(
                             _stateFlow.value.copy(
                                 isServiceError = false,
                                 isNoData = false,
-                                isLoading = false,
+                                isShimmerLoading = false,
                                 repositories = it.toPersistentList()
                             )
                         } else {
                             _stateFlow.value.copy(
                                 isServiceError = false,
                                 isNoData = true,
-                                isLoading = false,
+                                isShimmerLoading = false,
                             )
                         }
                     },
@@ -114,7 +114,7 @@ class ProjectListViewModel @Inject constructor(
                                 _stateFlow.value.copy(
                                     isServiceError = false,
                                     isNoData = true,
-                                    isLoading = false,
+                                    isShimmerLoading = false,
                                 )
                             }
 
@@ -125,7 +125,7 @@ class ProjectListViewModel @Inject constructor(
                                 // Unexpected service error case
                                 _stateFlow.value.copy(
                                     isServiceError = true,
-                                    isLoading = false,
+                                    isShimmerLoading = false,
                                 )
                             }
                         }
