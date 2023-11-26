@@ -36,27 +36,32 @@ src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/8d2bd069-6b1d
     - Repository
 * [JetPack Compose](https://developer.android.com/jetpack/compose?gclid=Cj0KCQiAjMKqBhCgARIsAPDgWlyVg8bZaasX_bdQfYrAXsuDQ6vD-2SmFcTv34Fb-jLQxgGqPD7UxKgaAso5EALw_wcB&gclsrc=aw.ds)
 * [Edge to Edge UI design](https://developer.android.com/jetpack/compose/layouts/insets)
+* Shimmer Loading
+* Native Splash Screen
 * Dark/Light UI Mode 
 * [Compose Destinations](https://github.com/raamcosta/compose-destinations) / [Documentation](https://composedestinations.rafaelcosta.xyz/)
 * [Room Database](https://developer.android.com/jetpack/androidx/releases/room)
     - Suspend response handling
     - Reactive Flow response handling
 * [Ktor Client](https://ktor.io/docs/client-supported-platforms.html)
+* [Lottie Animations](https://github.com/airbnb/lottie-android)
 * [Coil](https://github.com/coil-kt/coil)
     - Asynch image loading
     - Gif play support
 * [Timber Client logging](https://github.com/JakeWharton/timber)
 * [Dependency Injection (HILT)](https://developer.android.com/training/dependency-injection/hilt-android)
-* Unit testing
 * [Turbine](https://github.com/cashapp/turbine)
 * [MockK](https://mockk.io/)
+* Unit testing
 * Junit5
 
 
 #### UI Flow
-1- App starts with native splash screen then, user is navigated to project list screen
+1- App starts with custom splash screen then, user is navigated to project list screen
 
 2- In project list screen, user can enter usernames to "Repository Owner" input field and search corresponding user repositories.
+
+3- Repositories are listed after shimmer loading animation
 
 3- If repository liked before, it will be remembered and user can see like icon on project list.
 
