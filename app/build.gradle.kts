@@ -25,7 +25,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.akinci.projectfinder.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -96,7 +96,7 @@ dependencies {
     val hiltVersion = "2.48.1"
     val composeDestinationsVersion = "1.9.54"
     val ktorVersion = "2.3.6"
-    val roomVersion = "2.6.0"
+    val roomVersion = "2.6.1"
     val coilVersion = "2.5.0"
 
     // CORE
@@ -164,4 +164,23 @@ dependencies {
     testImplementation("io.mockk:mockk:1.13.8")
     testImplementation("app.cash.turbine:turbine:1.0.0")
     implementation("io.ktor:ktor-client-mock:$ktorVersion")
+
+    // UI/INSTRUMENTATION TESTING
+    androidTestImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test:rules:1.5.0")
+    androidTestImplementation("app.cash.turbine:turbine:1.0.0")
+    androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
+    androidTestImplementation("io.kotest:kotest-assertions-core:5.8.0")
+
+    // COMPOSE
+    androidTestImplementation(platform("androidx.compose:compose-bom:$composeBomVersion"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // COROUTINE
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
+
+    // HILT
+    androidTestImplementation("com.google.dagger:hilt-android-testing:$hiltVersion")
+    kspAndroidTest("com.google.dagger:hilt-android-compiler:$hiltVersion")
 }
