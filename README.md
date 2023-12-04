@@ -53,6 +53,7 @@ src="https://github.com/AttilaAKINCI/ProjectFinder/assets/21987335/5e7372a1-bbd1
 * [Turbine](https://github.com/cashapp/turbine)
 * [MockK](https://mockk.io/)
 * Unit testing
+* Instrumentation & Compose UI Testing
 * Junit5
 
 
