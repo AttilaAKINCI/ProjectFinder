@@ -47,8 +47,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.akinci.projectfinder.R
 import com.akinci.projectfinder.core.compose.UIModePreviews
-import com.akinci.projectfinder.domain.Owner
-import com.akinci.projectfinder.domain.Project
+import com.akinci.projectfinder.domain.data.Owner
+import com.akinci.projectfinder.domain.data.Project
 import com.akinci.projectfinder.ui.ds.components.GifImage
 import com.akinci.projectfinder.ui.ds.components.Shimmer
 import com.akinci.projectfinder.ui.ds.theme.ProjectFinderTheme

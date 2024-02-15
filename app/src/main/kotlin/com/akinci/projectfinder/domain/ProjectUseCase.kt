@@ -1,7 +1,7 @@
 package com.akinci.projectfinder.domain
 
-import com.akinci.projectfinder.data.favorite.FavoritesRepository
-import com.akinci.projectfinder.data.projects.ProjectRepository
+import com.akinci.projectfinder.data.repository.FavoritesRepository
+import com.akinci.projectfinder.data.repository.ProjectRepository
 import javax.inject.Inject
 
 class ProjectUseCase @Inject constructor(
@@ -13,9 +13,7 @@ class ProjectUseCase @Inject constructor(
         projectRepository.getProjectRepositories(repositoryOwnerName)
             .map { projects ->
                 projects.map {
-                    it.copy(
-                        isFavorite = favoritesRepository.isFavorite(it.id)
-                    )
+                    it.copy(isFavorite = favoritesRepository.isFavorite(it.id))
                 }
             }
 }

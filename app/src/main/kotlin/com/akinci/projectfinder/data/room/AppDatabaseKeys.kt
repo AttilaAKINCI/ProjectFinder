@@ -1,4 +1,4 @@
-package com.akinci.projectfinder.core.storage
+package com.akinci.projectfinder.data.room
 
 object AppDatabaseKeys {
     const val DB_NAME = "PROJECT_FINDER_DB"

@@ -2,7 +2,7 @@ package com.akinci.projectfinder.di
 
 import android.content.Context
 import androidx.room.Room
-import com.akinci.projectfinder.core.storage.AppDatabase
+import com.akinci.projectfinder.data.room.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

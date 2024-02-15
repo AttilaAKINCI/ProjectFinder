@@ -1,4 +1,4 @@
-package com.akinci.projectfinder.domain
+package com.akinci.projectfinder.domain.data
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -14,11 +14,4 @@ data class Project(
     val description: String?,
     val language: String?,
     val isFavorite: Boolean = false,
-) : Parcelable
-
-@Parcelize
-data class Owner(
-    val id: Int,
-    val name: String,
-    val avatarUrl: String,
 ) : Parcelable

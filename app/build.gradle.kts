@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
-    kotlin("plugin.serialization") version "1.9.10"
+    kotlin("plugin.serialization") version "1.9.22"
     id("kotlin-parcelize")
     id("com.google.dagger.hilt.android")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
@@ -61,7 +61,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
+        kotlinCompilerExtensionVersion = "1.5.9"
     }
 
     lint {
@@ -89,13 +89,13 @@ android {
 }
 
 dependencies {
-    val lifecycleVersion = "2.6.2"
-    val composeBomVersion = "2023.10.00"
-    val jUnit5Version = "5.10.1"
+    val lifecycleVersion = "2.7.0"
+    val composeBomVersion = "2024.02.00"
+    val jUnit5Version = "5.10.2"
     val coroutinesVersion = "1.7.3"
-    val hiltVersion = "2.48.1"
-    val composeDestinationsVersion = "1.9.54"
-    val ktorVersion = "2.3.6"
+    val hiltVersion = "2.50"
+    val composeDestinationsVersion = "1.10.0"
+    val ktorVersion = "2.3.8"
     val roomVersion = "2.6.1"
     val coilVersion = "2.5.0"
 
@@ -109,7 +109,7 @@ dependencies {
     implementation("io.coil-kt:coil-gif:$coilVersion")
 
     // ANIMATIONS
-    implementation("com.airbnb.android:lottie-compose:6.2.0")
+    implementation("com.airbnb.android:lottie-compose:6.3.0")
 
     // NETWORK
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
@@ -122,7 +122,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
     // COMPOSE
-    implementation("androidx.activity:activity-compose:1.8.1")
+    implementation("androidx.activity:activity-compose:1.8.2")
     implementation(platform("androidx.compose:compose-bom:$composeBomVersion"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
@@ -130,7 +130,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
 
     // NAVIGATION
-    implementation("androidx.navigation:navigation-compose:2.7.5")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("io.github.raamcosta.compose-destinations:core:$composeDestinationsVersion")
     implementation("io.github.raamcosta.compose-destinations:animations-core:$composeDestinationsVersion")
     ksp("io.github.raamcosta.compose-destinations:ksp:$composeDestinationsVersion")
@@ -161,7 +161,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-params:$jUnit5Version")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
     testImplementation("io.kotest:kotest-assertions-core:5.8.0")
-    testImplementation("io.mockk:mockk:1.13.8")
+    testImplementation("io.mockk:mockk:1.13.9")
     testImplementation("app.cash.turbine:turbine:1.0.0")
     implementation("io.ktor:ktor-client-mock:$ktorVersion")
 

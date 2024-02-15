@@ -1,8 +1,9 @@
-package com.akinci.projectfinder.data.favorite.local
+package com.akinci.projectfinder.data.room.favorite
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.akinci.projectfinder.core.storage.AppDatabaseKeys
+import com.akinci.projectfinder.domain.data.Favorite
+import com.akinci.projectfinder.data.room.AppDatabaseKeys
 
 @Entity(tableName = AppDatabaseKeys.DB_TABLE_FAVORITES)
 data class FavoriteEntity(
@@ -10,5 +11,3 @@ data class FavoriteEntity(
     val id: Int = 0,
     val repositoryId: Long,
 )
-
-fun FavoriteEntity.getData() = Favorite(repositoryId = repositoryId)

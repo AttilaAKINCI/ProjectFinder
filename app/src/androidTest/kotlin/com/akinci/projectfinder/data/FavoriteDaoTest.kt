@@ -4,9 +4,9 @@ import com.akinci.projectfinder.di.TestAppModule
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.filters.SmallTest
 import app.cash.turbine.test
-import com.akinci.projectfinder.core.storage.AppDatabase
-import com.akinci.projectfinder.data.favorite.local.FavoriteDAO
-import com.akinci.projectfinder.data.favorite.local.FavoriteEntity
+import com.akinci.projectfinder.data.room.AppDatabase
+import com.akinci.projectfinder.data.room.favorite.FavoriteDao
+import com.akinci.projectfinder.data.room.favorite.FavoriteEntity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.kotest.matchers.ints.shouldBeGreaterThan
@@ -23,7 +23,7 @@ import javax.inject.Inject
 @OptIn(ExperimentalCoroutinesApi::class)
 @HiltAndroidTest
 @SmallTest
-class FavoriteDAOTest {
+class FavoriteDaoTest {
 
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
@@ -35,12 +35,12 @@ class FavoriteDAOTest {
     @TestAppModule.TestDB
     lateinit var db: AppDatabase
 
-    private lateinit var favoriteDAO: FavoriteDAO
+    private lateinit var favoriteDAO: FavoriteDao
 
     @Before
     fun setup() {
         hiltRule.inject()
-        favoriteDAO = db.favoriteDao()
+        favoriteDAO = db.getFavoriteDao()
 
         // provide initial data
         runTest {

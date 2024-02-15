@@ -1,13 +1,14 @@
-package com.akinci.projectfinder.data.favorite.local
+package com.akinci.projectfinder.data.room.favorite
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.akinci.projectfinder.data.room.favorite.FavoriteEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface FavoriteDAO {
+interface FavoriteDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(item: FavoriteEntity)
 

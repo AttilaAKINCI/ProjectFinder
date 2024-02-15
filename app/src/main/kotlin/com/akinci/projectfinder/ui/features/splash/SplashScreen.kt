@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -27,7 +26,7 @@ import com.akinci.projectfinder.ui.ds.components.InfiniteLottieAnimation
 import com.akinci.projectfinder.ui.ds.theme.ProjectFinderTheme
 import com.akinci.projectfinder.ui.features.NavGraphs
 import com.akinci.projectfinder.ui.features.destinations.ProjectListScreenDestination
-import com.akinci.projectfinder.ui.features.splash.SplashViewContract.State
+import com.akinci.projectfinder.ui.features.splash.SplashScreenViewContract.State
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator

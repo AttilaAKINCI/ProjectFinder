@@ -1,7 +1,6 @@
 package com.akinci.projectfinder.ui.features.projects
 
-import com.akinci.projectfinder.core.compose.UIState
-import com.akinci.projectfinder.domain.Project
+import com.akinci.projectfinder.domain.data.Project
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.persistentListOf
 
@@ -16,5 +15,5 @@ object ProjectListViewContract {
         val searchText: String,
         val isSearchTextInvalid: Boolean = false,
         val repositories: PersistentList<Project> = persistentListOf(),
-    ): UIState
+    )
 }
