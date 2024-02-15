@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.akinci.projectfinder.core.coroutine.ContextProvider
 import com.akinci.projectfinder.core.network.exception.HttpNotFound
 import com.akinci.projectfinder.data.repository.FavoritesRepository
-import com.akinci.projectfinder.domain.ProjectUseCase
+import com.akinci.projectfinder.domain.GetProjectsUseCase
 import com.akinci.projectfinder.ui.features.projects.ProjectListViewContract.State
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.persistentListOf
@@ -25,7 +25,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ProjectListViewModel @Inject constructor(
     private val contextProvider: ContextProvider,
-    private val projectUseCase: ProjectUseCase,
+    private val projectUseCase: GetProjectsUseCase,
     private val favoritesRepository: FavoritesRepository,
 ) : ViewModel() {
 
@@ -91,7 +91,7 @@ class ProjectListViewModel @Inject constructor(
 
             viewModelScope.launch {
                 val state = withContext(contextProvider.io) {
-                    projectUseCase.getProjectRepositories(
+                    projectUseCase.execute(
                         repositoryOwnerName = searchText
                     )
                 }.fold(
