@@ -1,6 +1,9 @@
 # ProjectFinder
 Android compose application to list github repositories.
 
+If you find my repository helpful, you can [buy me a coffee](https://buymeacoffee.com/attilaakinci
+) to see more PoC samples 🍻☕️ 
+
 [APK Link (https://drive.google.com/file/d/1W5m6pmpNHGaedO2KpYEQ8LFf8WPw-ZDG/view?usp=sharing)](https://drive.google.com/file/d/1W5m6pmpNHGaedO2KpYEQ8LFf8WPw-ZDG/view?usp=sharing)
 
 Wireframe:
